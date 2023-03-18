@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  fabric:
+    build: .
+    ports:
+      - 25565:25565/tcp
+      - 25565:25565/udp
+    cap_drop:
+      - ALL
+    stdin_open: true # Allow system administrators to run console commands
+    restart: always
