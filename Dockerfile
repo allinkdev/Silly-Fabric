@@ -137,9 +137,10 @@ COPY --from=starlight-builder --chown=nonroot:nonroot /build/Starlight/build/lib
 
 # User-defined
 ADD --chown=nonroot:nonroot mods/*.jar ./
-ADD server.properties ./
 
 WORKDIR /server/
+
+ADD --chown=nonroot:nonroot server.properties ./
 
 COPY --from=server-launcher --chown=nonroot:nonroot /libraries/ libraries/
 COPY --from=server-launcher --chown=nonroot:nonroot /versions/ versions/
